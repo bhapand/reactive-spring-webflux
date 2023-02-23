@@ -1,0 +1,53 @@
+spring:
+  profiles:
+    active: local
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - local
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+
+---
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - test
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
+      embedded:
+        version: 6.0.1
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - non-prod
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - prod
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
